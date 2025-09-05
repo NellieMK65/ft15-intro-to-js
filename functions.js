@@ -51,3 +51,27 @@ const output = sum(4, 3);
 console.log(output);
 const mySum = 83 + 7;
 console.log(mySum);
+
+/**
+ * First-class functions -> in js functions can be treated like any other values (string, number)
+ * Arrow functions
+ * Callback functions
+ */
+// console.log(name) //we cannot access a variable before its declared
+const name = 'Peter';
+console.log(name);
+
+// arrow function syntax
+const sayHi = (params) => {
+	// function body
+};
+
+// we have declared an arrow function
+const add = (x, y) => {
+	return x + y;
+};
+
+console.log(add(10, 10));
+
+// TODO function hoisting
+// TODO default values for functions

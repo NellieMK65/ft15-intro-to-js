@@ -75,3 +75,39 @@ console.log(add(10, 10));
 
 // TODO function hoisting
 // TODO default values for functions
+
+const calculate = function perimeter(l, w) {
+	return l * 2 + w * 2;
+};
+
+function greeting(name) {
+	console.log(`Good morning, ${name}`);
+}
+
+// assignment exp
+const person = 'John Doe';
+
+// lookup exp
+greeting(person);
+
+greeting('Abigael');
+
+greeting('Tony');
+
+function run(greet) {
+	console.log('Running');
+	// callback function (we still have to call/invoke function passed as
+	// arguments)
+	greet('Elly');
+}
+
+// let greet = function () {
+//     console.log("Get into breakout rooms")
+// }
+
+// greet()
+
+// calling/invoking
+run(function () {
+	console.log('Get into breakout rooms');
+});

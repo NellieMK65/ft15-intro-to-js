@@ -140,12 +140,112 @@ console.log(getHighScore(students[2]));
 const studentWithScoreAbove60 = students.find(getHighScore);
 console.log(studentWithScoreAbove60);
 
+let anotherStudentWithAbove60;
+
+for (let i = 0; i < students.length; i++) {
+	const student = students[i];
+
+	if (student.score > 60) {
+		anotherStudentWithAbove60 = student;
+		break; //used inside the for loop to stop execution
+	}
+}
+
+console.log(anotherStudentWithAbove60);
+
 // filter -> returns multiple elements that meet a condition
 const studentsAbove60 = students.filter(getHighScore);
 console.log(studentsAbove60);
 
-// map
+// filtering using the while loop/for loop
+const studentsAbove60Two = [];
+for (let i = 0; i < students.length; i++) {
+	const student = students[i];
 
-// sort
+	if (student.score > 60) {
+		// save this student inside new array
+		studentsAbove60Two.push(student);
+	}
+}
+console.log(studentsAbove60Two);
 
-// reduce
+// map -> iterates over an array while modifying each element and returning the modified array
+const names = ['ibrahim', 'julius', 'nicole'];
+const capitalizeAllCharacters = names.map((name) => name.toUpperCase());
+console.log(capitalizeAllCharacters);
+console.log(names);
+
+const firstName = 'jeff';
+console.log(firstName.replace(firstName[0], firstName[0].toUpperCase()));
+
+const modifiedNames = names.map((name) => {
+	return name.replace(name[0], name[0].toUpperCase());
+	return name.charAt(0).toUpperCase() + name.slice(1);
+	return name[0].toUpperCase() + name.slice(1);
+});
+console.log(modifiedNames);
+
+// sort -> sort items in asc/desc manner
+const sortedNames = names.sort((a, b) => b - a);
+console.log(sortedNames);
+
+console.log(['a', 'd', 'c', 'f'].sort((a, b) => b - a));
+console.log([12, 33, 32, 43, 3].sort((a, b) => b - a));
+const sortedStudents = students.sort((a, b) => b.score - a.score);
+console.log(sortedStudents);
+// reduce -> used for aggregation
+
+const numbers = [1, 2, 3, 4, 5];
+const numbersSum = numbers.reduce((prev, curr) => {
+	console.log(prev);
+	console.log(curr);
+	return prev + curr;
+}, 0);
+console.log(numbersSum);
+
+const prices = [23, 32, 34, 20];
+const total = prices.reduce((prev, curr) => {
+	console.log(prev);
+	console.log(curr);
+
+	return prev + curr;
+}, 0);
+console.log(total);
+
+// 0 + 23 = 23
+// 23 + 32 = 55
+// 55 + 34 = 89
+// 89 + 20 = 109
+const orders = [
+	{
+		item: 'Oraimo watch',
+		price: 2500,
+		quantity: 2,
+	},
+	{
+		item: '1 meter cable',
+		price: 899,
+		quantity: 2,
+	},
+];
+
+const orderTotal = orders.reduce((prev, curr) => {
+	console.log(prev);
+	console.log(curr);
+	return prev + curr.price * curr.quantity;
+}, 0);
+console.log(orderTotal);
+
+// verify we are dealing with an array
+const data1 = 324;
+console.log(typeof data1);
+const data2 = [];
+console.log(typeof data2);
+
+if (typeof data1 == 'boolean') {
+	console.log('It is a boolean');
+} else {
+	console.log(`It is a ${typeof data1}`);
+}
+
+console.log(Array.isArray(data1));
